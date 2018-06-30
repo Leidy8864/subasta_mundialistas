@@ -1,0 +1,102 @@
+    <div class="container bgwhite p-t-35 p-b-80">
+        <form class="leave-comment">
+            <h4 class="m-text25 p-b-14">
+                Actualizar subasta
+            </h4>
+            <p class="s-text8 p-b-20">
+				Titulo  
+            </p>
+            <div class="bo12 of-hidden size19 m-b-20">
+                <input class="sizefull s-text7 p-l-18 p-r-18" ng-model="subasta.titulo" type="text" name="titulo" placeholder="Ingrese el nombre de su producto">
+            </div>
+            <p class="s-text8 p-b-20">
+				Categoría  
+            </p>
+            <div class="bo12 of-hidden size13 m-b-20">
+                <select class="form-control" id="categoria" ng-model="subasta.categoria" categoria="">
+                    <option selected>--Seleccione--</option>
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                    <option value="Ninos">Niños</option>
+                    <option value="Accesorios">Accesorios</option>
+                </select>
+            </div>
+            <p class="s-text8 p-b-20">
+				Descripción  
+            </p>
+			<textarea class="dis-block s-text7 size16 bo12 p-l-18 p-r-18 p-t-13 m-b-20" name="comment" ng-model="subasta.descripcion" placeholder="Breve descripción..."></textarea>
+            <p class="s-text8 p-b-20">
+				Precio inical
+            </p>
+            <div class="bo12 of-hidden size19 m-b-20">
+                <input class="sizefull s-text7 p-l-18 p-r-18" ng-model="subasta.precio_inicial" type="number" name="name">
+            </div>
+            <p class="s-text8 p-b-20">
+				Fecha final de la subasta  
+            </p>
+            <div class="bo12 of-hidden size19 m-b-20">
+                <input class="sizefull s-text7 p-l-18 p-r-18" ng-model="subasta.fecha_fin" type="date">
+            </div>
+            <p class="s-text8 p-b-15">
+				Fotografía 
+            </p>
+            <div class="form-group">
+                <label for="file"></label>
+                <input type="file" id="file" class="form-control-file">
+            </div>
+            <br>
+            <hr>
+            <div class="row">
+            <div class="w-size24">
+                <input type="submit" value="Atras" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4" ui-sref="mis_pro">
+			</div>
+                <br>
+            <div class="w-size24">
+                <input type="submit" value="Actualizar" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4" ng-click="actualizar()">
+			</div>
+                <br>
+            <div class="w-size24">
+                <input type="submit" value="Eliminar" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4" ng-click="eliminar()">
+			</div>
+            </div>
+        </form>
+    </div>
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection -->
+	<div id="dropDownSelect1"></div>
+	<div id="dropDownSelect2"></div>
+
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/js/popper.js.map"></script>
+	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+	<script type="text/javascript">
+		$(".selection-1").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect2')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
+	<script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+	<script type="text/javascript" src="javascripts/slick-custom.min.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="javascripts/main.js"></script>

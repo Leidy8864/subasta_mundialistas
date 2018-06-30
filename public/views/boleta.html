@@ -1,0 +1,168 @@
+	<!-- Title Page -->
+	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-01.jpg);">
+		<h2 class="l-text2 t-center">
+			Generación de la boleta
+		</h2>
+	</section>
+
+	<!-- Cart -->
+	<section class="cart bgwhite p-t-70 p-b-100" ng-controller="ctrlDetalles">
+		<div class="container">
+			<!-- Cart item -->
+			<div class="container-table-cart pos-relative">
+				<div class="wrap-table-shopping-cart bgwhite">
+					<table class="table-shopping-cart">
+						<tr class="table-head">
+							<th class="column-1"></th>
+							<th class="column-2">Producto</th>
+							<th class="column-3">Precio</th>
+							<th class="column-4">Puja</th>
+							<th class="column-5">Total</th>
+						</tr>
+
+						<tr class="table-row">
+							<td class="column-1">
+								<div class="cart-img-product b-rad-4 o-f-hidden">
+									<img ng-src="images/pro/{{subasta.image}}" alt="IMG-PRODUCT">
+								</div>
+							</td>
+							<td class="column-2">{{subasta.titulo}}</td>
+							<td class="column-3">{{subasta.precio_inicial | currency: 'S/.'}}</td>
+							<td class="column-4">{{puja.precio_puja | currency: 'S/.'}}</td>
+							<td class="column-5">{{puja.precio_puja | currency: 'S/.'}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+            <div ng-if="user_id == user._id" ng-repeat="user in users">
+                <div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
+                    <h4 class="m-text15 p-b-14">
+                        {{'Esta boleta sera enviada al ofertante'}}
+                    </h4>
+                </div>
+            </div>
+			<!-- Total -->
+			<div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
+				<h5 class="m-text20 p-b-24">
+					Boleta
+				</h5>
+
+				<!--  -->
+				<div class="flex-w flex-sb-m p-b-12">
+					<span class="s-text18 w-size19 w-full-sm">
+						Subtotal:
+					</span>
+
+					<span class="m-text21 w-size20 w-full-sm">
+						{{puja.precio_puja | currency: 'S/.'}}
+					</span>
+				</div>
+				<!--  -->
+				<div class="flex-w flex-sb bo10 p-t-15 p-b-20">
+					<span class="s-text18 w-size19 w-full-sm">
+						Información:
+					</span>
+
+					<div class="w-size20 w-full-sm">
+						<p class="s-text8 p-b-23">
+							¡Tu puja fue aceptada! Necesitas contactarme para acordar la fecha de entrega y el costo del envio.
+						</p>
+					</div>
+                    <hr>
+                    
+                    <span class="s-text18 w-size19 w-full-sm">
+						Ofertante:
+					</span>
+					<div class="w-size20 w-full-sm">
+						<p class="s-text8 p-b-23" ng-if="puja.usuario_id == user._id" ng-repeat="user in users">
+							{{user.google.name}}
+						</p>
+					</div>
+                    <hr>
+                    
+                    <span class="s-text18 w-size19 w-full-sm">
+						Subastador:
+					</span>
+					<div class="w-size20 w-full-sm">
+						<p class="s-text8 p-b-23" ng-if="user_id == user._id" ng-repeat="user in users">
+							{{user.google.name}}
+						</p>
+					</div>
+                    <hr>
+                    <span class="s-text18 w-size19 w-full-sm">
+						Teléfono:
+					</span>
+
+					<div class="w-size20 w-full-sm">
+						<p class="s-text8 p-b-23">
+							956 684 236
+						</p>
+					</div>
+				</div>
+				<!--  -->
+                
+                <input type="hidden" ng-model="boleta.subasta_id"        ng-init="boleta.subasta_id=subasta._id" />
+                <input type="hidden" ng-model="boleta.puja_id"           ng-init="boleta.puja_id=puja._id" />
+                <input type="hidden" ng-model="boleta.u_vendedor_id"     ng-init="boleta.u_vendedor_id=user_id" />
+                <input type="hidden" ng-if="puja.usuario_id == user._id" ng-repeat="user in users" 
+                       ng-model="boleta.u_comprador_id"   ng-init="boleta.u_comprador_id=user._id" />
+
+				<!--  -->
+				<div class="flex-w flex-sb-m p-t-26 p-b-30">
+					<span class="m-text22 w-size19 w-full-sm">
+						Total:
+					</span>
+
+					<span class="m-text21 w-size20 w-full-sm">
+						{{puja.precio_puja | currency: 'S/.'}}
+					</span>
+				</div>
+
+				<div class="size15 trans-0-4">
+					<!-- Button -->
+					<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" ng-click="agregar()">
+						Enviar
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
+	</div>
+
+	<!-- Container Selection -->
+	<div id="dropDownSelect1"></div>
+	<div id="dropDownSelect2"></div>
+
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/js/popper.js.map"></script>
+	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+	<script type="text/javascript">
+		$(".selection-1").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect2')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
+	<script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+	<script type="text/javascript" src="javascripts/slick-custom.min.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="javascripts/main.js"></script>

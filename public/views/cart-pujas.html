@@ -1,0 +1,126 @@
+
+<!-- Title Page -->
+	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-04.jpg);">
+		<h2 class="l-text2 t-center">
+			Pujas de mi producto
+		</h2>
+	</section>
+
+	<!-- Cart -->
+<div class="container bgwhite p-t-30 p-b-50">
+        <div class="row">
+        <div class="col-md-5 p-b-30">
+
+        <div class="container">
+            <div class="w-size20 p-t-30 respon5">
+				<h4 class="product-detail-name m-text16 p-b-13" ng-model="subasta.titulo">
+					{{subasta.titulo}}
+				</h4>
+
+				<span class="m-text17" ng-model="subasta.precio_inicial">
+					{{subasta.precio_inicial | currency: 'S/.'}}
+				</span>
+                <br>
+				<div class="p-b-45">
+                    <br>
+					<span class="s-text8 m-r-35">ESTADO: </span>
+                    <br>
+                    <span class="s-text8" ng-model="subasta.estado">                           
+                        {{subasta.estado}}</span>
+                    <br>
+                    <br>
+                    <span class="s-text8 m-r-35">CATEGORIA: </span>
+                    <br>
+					<span class="s-text8" ng-model="subasta.categoria">                       
+                        {{subasta.categoria}}</span>
+                    <br>
+                    <br>
+                    <span class="s-text8 m-r-35">DESCRIPCION: </span>
+                    <br>
+                    <p class="s-text8" ng-model="subasta.descripcion">
+				        {{subasta.descripcion}}
+				    </p>
+                    <br>
+                    <span class="s-text8 m-r-35">FECHA DE PUBLICACION: </span>
+                    <br>
+					<span class="s-text8" ng-model="subasta.fecha_inicio">                       
+                        {{subasta.fecha_inicio | date}}</span>
+                    <br>
+                    <br>
+                    <span class="s-text8 m-r-35">FECHA FINAL DE LA SUBASTA: </span>
+                    <br>
+					<span class="s-text8" ng-model="subasta.fecha_fin">                       
+                        {{subasta.fecha_fin | date}}</span>
+				</div>
+            </div>
+        </div>
+        </div>
+        
+        <div class="col-md-7 p-b-30">
+		<div class="container">
+			<!-- Cart item -->
+            <br>
+            <br>
+            <br>
+			<div class="container-table-cart pos-relative" data-ng-controller="ctrlPujas">
+				<div class="wrap-table-shopping-cart bgwhite">
+				    <table class="table table-hover">
+					   <thead>
+                           <tr>
+                               <th scope="col">Precio de la puja</th>
+                               <th scope="col">Fecha de realización</th>
+                               <th scope="col">Hora de realización</th>
+                               <th scope="col">Usuario</th>
+                               <th scope="col">Accion</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-if="puja.subasta_id == subasta._id" ng-repeat="puja in pujas track by $index | orderBy:'-fecha_puja'">
+                                <td>{{puja.precio_puja | currency: 'S/.'}}</td>
+                                <td>{{puja.fecha_puja | date}}</td>
+                                <td>{{puja.fecha_puja | date}}</td>
+                                <td ng-if="puja.usuario_id == user._id" ng-repeat="user in users">{{user.google.name}}</td>
+                                <td>
+								    <a class="btn btn-primary" ng-click="procesaPuja(puja)" role="button">Acpetar Puja</a>
+								</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="w-size24">
+                        <input type="submit" value="Atras" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4" ui-sref="mis_pro">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+</div>
+
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+    <script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/js/popper.js.map"></script>
+	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+	<script type="text/javascript">
+		$(".selection-1").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect2')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
+	<script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+	<script type="text/javascript" src="javascripts/slick-custom.min.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="javascripts/main.js"></script>
+
