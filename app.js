@@ -19,8 +19,8 @@ require('./models/Pujas');
 require('./models/Comentarios');
 require('./models/Boletas');
 
-//mongoose.connect('mongodb://<leidy8864>:<leidy123>@ds125041.mlab.com:25041/bda');
-mongoose.connect('mongodb://localhost/bda');
+mongoose.connect('mongodb://<leidy8864>:<leidy123>@ds125041.mlab.com:25041/bda');
+//mongoose.connect('mongodb://localhost/bda');
 require('./config/passport')(passport);
 
 var passRouter          = require('./routes/pass');
