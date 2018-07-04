@@ -19,17 +19,17 @@
 							<th class="column-4">Puja</th>
 							<th class="column-5">Total</th>
 						</tr>
-
+                        
 						<tr class="table-row" ng-repeat="boleta in boletas">
 							<td class="column-1">
-								<div class="cart-img-product b-rad-4 o-f-hidden" ng-if="boleta.subasta_id == subasta._id" 
+								<div class="cart-img-product b-rad-4 o-f-hidden" ng-if="boleta.subasta_id == subasta._id && subasta.usuario_id != user_id"
                                 ng-repeat="subasta in subastas">
 									<img ng-src="images/pro/{{subasta.image}}" alt="IMG-PRODUCT">
 								</div>
 							</td>
-							<td class="column-2" ng-if="boleta.subasta_id == subasta._id" 
+							<td class="column-2" ng-if="boleta.subasta_id == subasta._id && subasta.usuario_id != user_id" 
                                 ng-repeat="subasta in subastas">{{subasta.titulo}}</td>
-							<td class="column-3" ng-if="boleta.subasta_id == subasta._id" 
+							<td class="column-3" ng-if="boleta.subasta_id == subasta._id && subasta.usuario_id != user_id" 
                                 ng-repeat="subasta in subastas">{{subasta.precio_inicial | currency: 'S/.'}}</td>
 							<td class="column-4" ng-if="boleta.puja_id == puja._id" 
                                 ng-repeat="puja in pujas">{{puja.precio_puja | currency: 'S/.'}}</td>
@@ -99,30 +99,13 @@
 					</div>
 				</div>
 				<!--  -->
-                
-                <input type="hidden" ng-model="boleta.subasta_id"        ng-init="boleta.subasta_id=subasta._id" />
-                <input type="hidden" ng-model="boleta.puja_id"           ng-init="boleta.puja_id=puja._id" />
-                <input type="hidden" ng-model="boleta.u_vendedor_id"     ng-init="boleta.u_vendedor_id=user_id" />
-                <input type="hidden" ng-if="puja.usuario_id == user._id" ng-repeat="user in users" 
-                       ng-model="boleta.u_comprador_id"   ng-init="boleta.u_comprador_id=user._id" />
-
-				<!--  -->
-				<div class="flex-w flex-sb-m p-t-26 p-b-30" ng-repeat="boleta in boletas">
-					<span class="m-text22 w-size19 w-full-sm">
-						Total:
-					</span>
-
-					<span class="m-text21 w-size20 w-full-sm" ng-if="boleta.puja_id == puja._id" ng-repeat="puja in pujas">
-						{{puja.precio_puja | currency: 'S/.'}}
-					</span>
-				</div>
-
-				<div class="size15 trans-0-4">
-					<!-- Button -->
-					<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" ui-ref="inicio">
-						Aceptar
-					</button>
-				</div>
+                <form ui-ref="inicio" ng-controller="ctrlEditar">
+                    <input type="hidden" ng-model="subasta.estado" ng-init="subasta.estado='Puja aceptada'" />
+                    <div class="size15 trans-0-4">
+                        <!-- Button -->
+                        <input type="submit" value="Aceptar" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4" ng-click="actualizar()">
+                    </div>
+                </form>
 			</div>
 		</div>
 	</section>

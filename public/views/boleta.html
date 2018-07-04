@@ -76,6 +76,8 @@
 					<div class="w-size20 w-full-sm">
 						<p class="s-text8 p-b-23" ng-if="puja.usuario_id == user._id" ng-repeat="user in users">
 							{{user.google.name}}
+                            {{user.local.name}}
+                            {{user.facebook.name}}
 						</p>
 					</div>
                     <hr>
@@ -86,6 +88,8 @@
 					<div class="w-size20 w-full-sm">
 						<p class="s-text8 p-b-23" ng-if="user_id == user._id" ng-repeat="user in users">
 							{{user.google.name}}
+                            {{user.local.name}}
+                            {{user.facebook.name}}
 						</p>
 					</div>
                     <hr>

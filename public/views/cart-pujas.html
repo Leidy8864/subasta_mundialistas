@@ -79,7 +79,11 @@
                                 <td>{{puja.precio_puja | currency: 'S/.'}}</td>
                                 <td>{{puja.fecha_puja | date}}</td>
                                 <td>{{puja.fecha_puja | date}}</td>
-                                <td ng-if="puja.usuario_id == user._id" ng-repeat="user in users">{{user.google.name}}</td>
+                                <td ng-if="puja.usuario_id == user._id" ng-repeat="user in users">
+                                    {{user.google.name}}
+                                    {{user.local.name}}
+                                    {{user.facebook.name}}
+                                </td>
                                 <td>
 								    <a class="btn btn-primary" ng-click="procesaPuja(puja)" role="button">Acpetar Puja</a>
 								</td>

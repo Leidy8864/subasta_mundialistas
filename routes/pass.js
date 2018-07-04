@@ -17,7 +17,7 @@ var User = require('../models/user');
 	});
 
 	router.post('/login', passport.authenticate('local-login', {
-		successRedirect: '/profile',
+		successRedirect: '/index',
 		failureRedirect: '/login',
 		failureFlash: true
 	}));
@@ -27,7 +27,7 @@ var User = require('../models/user');
 	});
 
 	router.post('/signup', passport.authenticate('local-signup', {
-		successRedirect: '/',
+		successRedirect: '/index',
 		failureRedirect: '/signup',
 		failureFlash: true
 	}));
@@ -39,7 +39,7 @@ var User = require('../models/user');
 	router.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email']}));
 
 	router.get('/auth/facebook/callback', 
-	  passport.authenticate('facebook', { successRedirect: '/profile',
+	  passport.authenticate('facebook', { successRedirect: '/index',
 	                                      failureRedirect: '/' }));
 
 	router.get('/auth/google', passport.authenticate('google', {scope: ['profile', 'email']}));

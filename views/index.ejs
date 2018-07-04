@@ -46,13 +46,6 @@
 		<!-- Header desktop -->
 		<div class="container-menu-header">
 			<div class="topbar">
-				<div class="topbar-social">
-					<a href="#" class="topbar-social-item fa fa-facebook"></a>
-					<a href="#" class="topbar-social-item fa fa-instagram"></a>
-					<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-					<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
-				</div>
 
 				<span class="topbar-child1">
 					Adquiere productos del Mundial Rusia 2018 a bajos precios
@@ -60,7 +53,7 @@
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-						BIENVENIDO <strong><%= user.google.name %></strong>
+						BIENVENIDO  <strong><%= user.google.name %></strong>
 					</span>
                     <div ng-init="user_id='<%= user._id %>'"></div>
 				</div>
@@ -68,7 +61,7 @@
 
 			<div class="wrap_header">
 				<!-- Logo -->
-				<a href="index.html" class="logo">
+				<a class="logo">
 					<img src="images/icons/logo.png" alt="IMG-LOGO">
 				</a>
 
@@ -105,7 +98,7 @@
                             <div class="header-cart header-dropdown">
                                 <ul class="header-cart-wrapitem">
                                     <li class="header-cart-item">
-                                        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+                                        <a href="/logout" class="btn btn-default btn-sm">Salir</a>
                                     </li>
                                 </ul>
                             </div>
@@ -148,7 +141,7 @@
 		<!-- Header Mobile -->
 		<div class="wrap_header_mobile">
 			<!-- Logo moblie -->
-			<a href="index.html" class="logo-mobile">
+			<a class="logo-mobile">
 				<img src="images/icons/logo.png" alt="IMG-LOGO">
 			</a>
 
@@ -262,16 +255,6 @@
 		<div class="wrap-side-menu" >
 			<nav class="side-menu">
 				<ul class="main-menu">
-					<li class="item-topbar-mobile p-l-10">
-						<div class="topbar-social-mobile">
-							<a href="#" class="topbar-social-item fa fa-facebook"></a>
-							<a href="#" class="topbar-social-item fa fa-instagram"></a>
-							<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-							<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-							<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
-						</div>
-					</li>
-
 					<li class="item-menu-mobile">
 						<a ui-sref="inicio">INICIO</a>
 					</li>
